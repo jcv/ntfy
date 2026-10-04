@@ -3,17 +3,17 @@ This is an incomplete list of known issues with the ntfy server, web app, Androi
 list [on GitHub](https://github.com/binwiederhier/ntfy/labels/%F0%9F%AA%B2%20bug), but I thought it may be helpful
 to have the prominent ones here to link to.
 
-## iOS app not refreshing (see [#267](https://github.com/binwiederhier/ntfy/issues/267))
-For some (many?) users, the iOS app is not refreshing the view when new notifications come in. Until you manually
+## iOS app not refreshing (see [#337](https://github.com/binwiederhier/ntfy/issues/337))
+For some users, the iOS app does not refresh the view when new notifications come in. Until you manually
 swipe down, you do not see the newly arrived messages, even though the popup appeared before.
 
-This is caused by some weirdness between the Notification Service Extension (NSE), SwiftUI and Core Data. I am entirely
-clueless on how to fix it, sadly, as it is ephemeral and not clear to me what is causing it.
-
-Please send experienced iOS developers my way to help me figure this out.
+The [iOS improvement plan](https://github.com/binwiederhier/ntfy/issues/1680) lists this as probably fixed. iOS app
+v1.4.1 included a refresh fix for it, and v1.5.1 made background polling more reliable and polls subscriptions
+whenever the topic list appears. If you still see this on the latest version, please comment on [#337](https://github.com/binwiederhier/ntfy/issues/337).
 
 ## iOS app not receiving notifications (anymore)
-If notifications do not show up at all anymore, there are a few causes for it (that I know of):
+If notifications do not show up at all anymore, first update to the latest version of the iOS app. Several polling
+and delivery fixes shipped in v1.5.1 and later. Beyond that, there are a few causes for it (that I know of):
 
 **Firebase+APNS are being weird and buggy**:    
 If this is the case, usually it helps to **remove the topic/subscription and re-add it**. That will force Firebase to 
@@ -37,7 +37,3 @@ and read docs on [iOS instant notifications](https://docs.ntfy.sh/config/#ios-in
 ## Safari does not play sounds for web push notifications
 Safari does not support playing sounds for web push notifications, and treats them all as silent. This will be fixed with
 iOS 17 / Safari 17, which will be released later in 2023.
-
-## PWA on iOS sometimes crashes with an IndexedDB error (see [#787](https://github.com/binwiederhier/ntfy/issues/787))
-When resuming the installed PWA from the background, it sometimes crashes with an error from IndexedDB/Dexie, due to a
-[WebKit bug]( https://bugs.webkit.org/show_bug.cgi?id=197050). A reload will fix it until a permanent fix is found.

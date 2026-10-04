@@ -62,9 +62,11 @@ Yes, maybe. Check out [existing GitHub issues](https://github.com/binwiederhier/
 the same idea before you, or file a new issue. I'll likely get back to you within a few days.
 
 ## I'm having issues with iOS, can you help? The iOS app is behind compared to the Android app, can you fix that?
-The iOS is very bare bones and quite frankly a little buggy. I wanted to get something out the door to make the iOS users
-happy, but halfway through I got frustrated with iOS development and paused development. I will eventually get back to
-it, or hopefully, somebody else will come along and help out. Please review the [known issues](known-issues.md) for details.
+For a long time, the iOS app was very bare bones and quite frankly a little buggy. Development picked back up in 2026:
+the [iOS improvement plan](https://github.com/binwiederhier/ntfy/issues/1680) tracks stability fixes first, then
+the most-requested features. Since then, the iOS app has gained more reliable delivery, image and attachment
+support, and clickable links, with critical alerts coming next (see the [release notes](releases.md)). It still lags
+behind the Android app, so please review the [known issues](known-issues.md), and contributions to the [iOS app](https://github.com/binwiederhier/ntfy-ios) are very welcome.
 
 ## Can I disable the web app? Can I protect it with a login screen?
 The web app is a static website without a backend (other than the ntfy API). All data is stored locally in the browser
